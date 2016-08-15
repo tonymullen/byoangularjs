@@ -107,5 +107,11 @@ describe('parse', function() {
   it('will parse an object with identifier keys', function() {
     var fn = parse('{a: 1, b: [2, 3], c: {d:4}}');
     expect(fn()).toEqual({a: 1, b: [2, 3], c: {d:4}});
-  })
+  });
+  // Not yet implemented. Chapter 7 first feature P. 229
+  it('looks up an attribute from the scope', function() {
+    var fn = parse('aKey');
+    expect(fn({akey: 42})).toBe(42);
+    expect(fn({})).toBeUndefined();
+  });
 });
